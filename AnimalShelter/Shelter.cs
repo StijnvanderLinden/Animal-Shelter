@@ -43,14 +43,23 @@ namespace AnimalShelter
             }
         }
 
-        public void AddPet(Pet pet)
+        public void AddPet(string name, int age)
         {
-
+            Pet pet = new Pet(name, age, false);
         }
 
         public void SellPet(Pet pet, Owner owner)
         {
-
+            int i = 0;
+            foreach(Pet animal in Pets)
+            {
+                if(pet.Name == animal.Name && pet.Age == animal.Age)
+                {
+                    Pets.RemoveAt(i);
+                }
+                i++;
+            }
+            owner.Pets.Add(pet);
         }
     }
 }

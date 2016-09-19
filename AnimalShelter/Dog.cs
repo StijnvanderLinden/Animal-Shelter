@@ -13,6 +13,9 @@ namespace AnimalShelter
         public Dog(string name, int age, bool reserved, DateTime lastWalk) : base(name, age, reserved)
         {
             LastWalk = lastWalk;
+            Name = name;
+            Age = age;
+            Reserved = reserved;
         }
 
         public DateTime LastWalk
@@ -30,7 +33,7 @@ namespace AnimalShelter
 
         public void WalkDog(Dog dog)
         {
-
+            LastWalk = DateTime.Now;
         }
     }
 }

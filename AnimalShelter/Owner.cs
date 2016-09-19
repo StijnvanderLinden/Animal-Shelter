@@ -57,14 +57,11 @@ namespace AnimalShelter
                 reservedPets = value;
             }
         }
-        public void BuyPet(Pet pet)
-        {
-
-        }
 
         public void ReservePet(Pet pet)
         {
-
+            ReservedPets.Add(pet);
+            pet.Reserved = true;
         }
     }
 }

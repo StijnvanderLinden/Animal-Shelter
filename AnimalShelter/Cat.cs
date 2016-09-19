@@ -13,6 +13,9 @@ namespace AnimalShelter
         public Cat(string name, int age, bool reserved, List<string> behavior) : base(name, age, reserved)
         {
             Behavior = behavior;
+            Name = name;
+            Age = age;
+            Reserved = reserved;
         }
 
         public List<string> Behavior
@@ -30,12 +33,13 @@ namespace AnimalShelter
 
         public void AddBehavior(string behavior)
         {
-
+            Behavior.Add(behavior);
         }
 
         public void RemoveBehavior(string behavior)
         {
-
+            int behaviorIndex = Behavior.IndexOf(behavior);
+            Behavior.RemoveAt(behaviorIndex);
         }
     }
 }
