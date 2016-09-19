@@ -19,43 +19,10 @@ namespace AnimalShelter
             Reserved = reserved;
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
+        public string Name { get { return name; } set { name = value; } }
 
-            set
-            {
-                name = value;
-            }
-        }
+        public int Age { get { return age; } set { age = value; } }
 
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
-
-            set
-            {
-                age = value;
-            }
-        }
-
-        public bool Reserved
-        {
-            get
-            {
-                return reserved;
-            }
-
-            set
-            {
-                reserved = value;
-            }
-        }
+        public bool Reserved { get { return reserved; } set { reserved = value; } }
     }
 }

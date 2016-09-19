@@ -19,44 +19,11 @@ namespace AnimalShelter
             ReservedPets = reservedPets;
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
+        public string Name { get { return name; }  set { name = value; } }
 
-            set
-            {
-                name = value;
-            }
-        }
+        public List<Pet> Pets { get { return pets; } set { pets = value; } }
 
-        internal List<Pet> Pets
-        {
-            get
-            {
-                return pets;
-            }
-
-            set
-            {
-                pets = value;
-            }
-        }
-
-        internal List<Pet> ReservedPets
-        {
-            get
-            {
-                return reservedPets;
-            }
-
-            set
-            {
-                reservedPets = value;
-            }
-        }
+        public List<Pet> ReservedPets { get { return reservedPets; } set { reservedPets = value; } }
 
         public void ReservePet(Pet pet)
         {

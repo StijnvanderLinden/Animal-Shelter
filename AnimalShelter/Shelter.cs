@@ -17,31 +17,9 @@ namespace AnimalShelter
             Pets = pets;
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
+        public string Name { get { return name; } set { name = value; } }
 
-            set
-            {
-                name = value;
-            }
-        }
-
-        internal List<Pet> Pets
-        {
-            get
-            {
-                return pets;
-            }
-
-            set
-            {
-                pets = value;
-            }
-        }
+        public List<Pet> Pets { get { return pets; } set { pets = value; } }
 
         public void AddPet(string name, int age)
         {

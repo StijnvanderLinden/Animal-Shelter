@@ -13,23 +13,9 @@ namespace AnimalShelter
         public Cat(string name, int age, bool reserved, List<string> behavior) : base(name, age, reserved)
         {
             Behavior = behavior;
-            Name = name;
-            Age = age;
-            Reserved = reserved;
         }
 
-        public List<string> Behavior
-        {
-            get
-            {
-                return behavior;
-            }
-
-            set
-            {
-                behavior = value;
-            }
-        }
+        public List<string> Behavior { get { return behavior; } set { behavior = value; } }
 
         public void AddBehavior(string behavior)
         {
