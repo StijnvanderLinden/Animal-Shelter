@@ -10,34 +10,35 @@ namespace AnimalShelter
     {
         private string name;
         private List<Pet> pets;
+        private List<Owner> owners;
 
-        public Shelter(string name, List<Pet> pets)
+        public Shelter(string name)
         {
             Name = name;
-            Pets = pets;
+            List<Pet> pets = new List<Pet>();
         }
 
         public string Name { get { return name; } set { name = value; } }
 
         public List<Pet> Pets { get { return pets; } set { pets = value; } }
 
-        public void AddPet(string name, int age)
+        public void AddPet(Pet pet)
         {
-            Pet pet = new Pet(name, age, false);
+            pets.Add(pet);
         }
 
-        public void SellPet(Pet pet, Owner owner)
+        public void SellPet(string petName, int petAge, string ownerName, Owner owner)
         {
             int i = 0;
             foreach(Pet animal in Pets)
             {
-                if(pet.Name == animal.Name && pet.Age == animal.Age)
+                if(petName == animal.Name && petAge == animal.Age)
                 {
                     Pets.RemoveAt(i);
                 }
                 i++;
             }
-            owner.Pets.Add(pet);
+            owner.Pets.Add(Pets[i]);
         }
     }
 }

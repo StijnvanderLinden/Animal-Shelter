@@ -12,9 +12,16 @@ namespace AnimalShelter
 {
     public partial class Form1 : Form
     {
+        Shelter shelter;
         public Form1()
         {
             InitializeComponent();
+            shelter = new Shelter("Animal Shelter");
+        }
+
+        private void btAddPet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
