@@ -57,19 +57,22 @@ namespace AnimalShelter
         private void btBuyDog_Click(object sender, EventArgs e)
         {
             shelter.Owners[lbOwners.SelectedIndex].Pets.Add(shelter.Pets[lbPets.SelectedIndex]);
+            shelter.Pets[lbPets.SelectedIndex].Owner = shelter.Owners[lbOwners.SelectedIndex];
             lbOwnerPets.Items.Add(shelter.Pets[lbPets.SelectedIndex].Name);
+            lbPetDetails.Items.Add("Owner: " + shelter.Owners[lbOwners.SelectedIndex].Name);
         }
-
-        
 
         private void btReservePet_Click(object sender, EventArgs e)
         {
-
+            shelter.Owners[lbOwners.SelectedIndex].ReservedPets.Add(shelter.Pets[lbPets.SelectedIndex]);
+            shelter.Pets[lbPets.SelectedIndex].Reserved = true;
+            lbReservedPets.Items.Add(shelter.Pets[lbPets.SelectedIndex]);
         }
 
         private void btSellPet_Click(object sender, EventArgs e)
         {
-
+            shelter.Owners[lbOwners.SelectedIndex].Pets.Remove(shelter.Pets[lbPets.SelectedIndex]);
+            shelter.Pets[lbPets.SelectedIndex].Owner = null;
         }
 
         private void lbOwners_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +83,21 @@ namespace AnimalShelter
                 lbOwnerPets.Items.Add(pet.Name);
             }
 
+        }
+        private void lbPets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbPetDetails.Items.Clear();
+            lbPetDetails.Items.Add("Name: " + shelter.Pets[lbPets.SelectedIndex].Name);
+            lbPetDetails.Items.Add("Age: " + shelter.Pets[lbPets.SelectedIndex].Age);
+            lbPetDetails.Items.Add("Reserved: " + shelter.Pets[lbPets.SelectedIndex].Reserved);
+            if(shelter.Pets[lbPets.SelectedIndex].Owner != null)
+            {
+                lbPetDetails.Items.Add("Owner: " + shelter.Pets[lbPets.SelectedIndex].Owner.Name);
+            }
+            //if(shelter.Pets[lbPets.SelectedIndex].GetType() == typeof(Dog))
+            //{
+            //    lbPetDetails.Items.Add
+            //}
         }
         private void RefreshLists()
         {

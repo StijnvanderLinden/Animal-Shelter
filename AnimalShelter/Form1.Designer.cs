@@ -94,6 +94,7 @@
             this.lbPets.Name = "lbPets";
             this.lbPets.Size = new System.Drawing.Size(111, 95);
             this.lbPets.TabIndex = 3;
+            this.lbPets.SelectedIndexChanged += new System.EventHandler(this.lbPets_SelectedIndexChanged);
             // 
             // label3
             // 
