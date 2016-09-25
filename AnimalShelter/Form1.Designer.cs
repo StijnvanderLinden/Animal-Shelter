@@ -64,8 +64,9 @@
             this.lbOwners.FormattingEnabled = true;
             this.lbOwners.Location = new System.Drawing.Point(175, 247);
             this.lbOwners.Name = "lbOwners";
-            this.lbOwners.Size = new System.Drawing.Size(111, 69);
+            this.lbOwners.Size = new System.Drawing.Size(111, 95);
             this.lbOwners.TabIndex = 0;
+            this.lbOwners.SelectedIndexChanged += new System.EventHandler(this.lbOwners_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -141,19 +142,20 @@
             // 
             // btSellPet
             // 
-            this.btSellPet.Location = new System.Drawing.Point(192, 351);
+            this.btSellPet.Location = new System.Drawing.Point(192, 377);
             this.btSellPet.Name = "btSellPet";
             this.btSellPet.Size = new System.Drawing.Size(75, 23);
             this.btSellPet.TabIndex = 12;
             this.btSellPet.Text = "Sell pet";
             this.btSellPet.UseVisualStyleBackColor = true;
+            this.btSellPet.Click += new System.EventHandler(this.btSellPet_Click);
             // 
             // lbOwnerPets
             // 
             this.lbOwnerPets.FormattingEnabled = true;
             this.lbOwnerPets.Location = new System.Drawing.Point(292, 247);
             this.lbOwnerPets.Name = "lbOwnerPets";
-            this.lbOwnerPets.Size = new System.Drawing.Size(111, 69);
+            this.lbOwnerPets.Size = new System.Drawing.Size(111, 95);
             this.lbOwnerPets.TabIndex = 13;
             // 
             // label7
@@ -207,21 +209,23 @@
             // 
             // btReservePet
             // 
-            this.btReservePet.Location = new System.Drawing.Point(192, 380);
+            this.btReservePet.Location = new System.Drawing.Point(192, 406);
             this.btReservePet.Name = "btReservePet";
             this.btReservePet.Size = new System.Drawing.Size(75, 23);
             this.btReservePet.TabIndex = 19;
             this.btReservePet.Text = "Reserve pet";
             this.btReservePet.UseVisualStyleBackColor = true;
+            this.btReservePet.Click += new System.EventHandler(this.btReservePet_Click);
             // 
             // btBuyDog
             // 
-            this.btBuyDog.Location = new System.Drawing.Point(192, 322);
+            this.btBuyDog.Location = new System.Drawing.Point(192, 348);
             this.btBuyDog.Name = "btBuyDog";
             this.btBuyDog.Size = new System.Drawing.Size(75, 23);
             this.btBuyDog.TabIndex = 20;
             this.btBuyDog.Text = "Buy pet";
             this.btBuyDog.UseVisualStyleBackColor = true;
+            this.btBuyDog.Click += new System.EventHandler(this.btBuyDog_Click);
             // 
             // txtPetName
             // 
@@ -260,7 +264,7 @@
             this.lbReservedPets.FormattingEnabled = true;
             this.lbReservedPets.Location = new System.Drawing.Point(409, 247);
             this.lbReservedPets.Name = "lbReservedPets";
-            this.lbReservedPets.Size = new System.Drawing.Size(111, 69);
+            this.lbReservedPets.Size = new System.Drawing.Size(111, 95);
             this.lbReservedPets.TabIndex = 25;
             // 
             // label12

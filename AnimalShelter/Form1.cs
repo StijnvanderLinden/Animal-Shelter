@@ -31,23 +31,14 @@ namespace AnimalShelter
                 Cat cat = new Cat(txtPetName.Text, Convert.ToInt32(txtPetAge.Text), false, txtCatBehavior.Text);
                 shelter.Pets.Add(cat);
             }
-            lbPets.Items.Clear();
-            foreach(Pet pet in shelter.Pets)
-            {
-                lbPets.Items.Add(pet.Name);
-            }
+            RefreshLists();
         }
 
         private void btAddOwner_Click(object sender, EventArgs e)
         {
             Owner owner = new Owner(txtOwnerName.Text);
             shelter.Owners.Add(owner);
-            lbOwners.Items.Clear();
-            foreach (Owner owner1 in shelter.Owners)
-            {
-                lbOwners.Items.Add(owner1.Name);
-            }
-            
+            RefreshLists();
         }
 
         private void btBuyPet_Click(object sender, EventArgs e)
@@ -57,7 +48,53 @@ namespace AnimalShelter
 
         private void btRemovePet_Click(object sender, EventArgs e)
         {
-            shelter.RemovePet(shelter.Pets[lbPets.SelectedIndex]);
+            if(lbPets.SelectedItem != null)
+            {
+                shelter.RemovePet(shelter.Pets[lbPets.SelectedIndex]);
+                RefreshLists();
+            }
+        }
+        private void btBuyDog_Click(object sender, EventArgs e)
+        {
+            shelter.Owners[lbOwners.SelectedIndex].Pets.Add(shelter.Pets[lbPets.SelectedIndex]);
+            lbOwnerPets.Items.Add(shelter.Pets[lbPets.SelectedIndex].Name);
+        }
+
+        
+
+        private void btReservePet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSellPet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbOwners_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbOwnerPets.Items.Clear();
+            foreach(Pet pet in shelter.Owners[lbOwners.SelectedIndex].Pets)
+            {
+                lbOwnerPets.Items.Add(pet.Name);
+            }
+
+        }
+        private void RefreshLists()
+        {
+            lbPets.Items.Clear();
+            lbOwners.Items.Clear();
+            lbOwnerPets.Items.Clear();
+            foreach (Pet pet in shelter.Pets)
+            {
+                lbPets.Items.Add(pet.Name);
+            }
+
+            foreach (Owner owner in shelter.Owners)
+            {
+                lbOwners.Items.Add(owner.Name);
+            }
         }
     }
 }
