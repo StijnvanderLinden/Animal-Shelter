@@ -8,37 +8,37 @@ namespace AnimalShelter
 {
     class Shelter
     {
-        private string name;
-        private List<Pet> pets;
-        private List<Owner> owners;
+        public string Name { get; set; }
+        public List<Pet> Pets { get; set; }
+        public List<Owner> Owners { get; set; }
 
         public Shelter(string name)
         {
             Name = name;
-            List<Pet> pets = new List<Pet>();
+            Pets = new List<Pet>();
+            Owners = new List<Owner>();
         }
 
-        public string Name { get { return name; } set { name = value; } }
-
-        public List<Pet> Pets { get { return pets; } set { pets = value; } }
 
         public void AddPet(Pet pet)
         {
-            pets.Add(pet);
+            Pets.Add(pet);
         }
 
-        public void SellPet(string petName, int petAge, string ownerName, Owner owner)
+        public void SellPet(Pet pet, Owner owner)
         {
-            int i = 0;
-            foreach(Pet animal in Pets)
-            {
-                if(petName == animal.Name && petAge == animal.Age)
-                {
-                    Pets.RemoveAt(i);
-                }
-                i++;
-            }
-            owner.Pets.Add(Pets[i]);
+            Pets.Remove(pet);
+            owner.Pets.Add(pet);
+        }
+
+        public void RemovePet(Pet pet)
+        {
+            Pets.Remove(pet);
+        }
+
+        public void WalkDog(Dog dog)
+        {
+            dog.LastWalk = DateTime.Now;
         }
     }
 }

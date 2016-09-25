@@ -31,10 +31,8 @@
             this.lbOwners = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbDogs = new System.Windows.Forms.ListBox();
-            this.lbCats = new System.Windows.Forms.ListBox();
+            this.lbPets = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbPetDetails = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btAddPet = new System.Windows.Forms.Button();
@@ -47,7 +45,7 @@
             this.rbDog = new System.Windows.Forms.RadioButton();
             this.rbCat = new System.Windows.Forms.RadioButton();
             this.btReservePet = new System.Windows.Forms.Button();
-            this.btBuyPet = new System.Windows.Forms.Button();
+            this.btBuyDog = new System.Windows.Forms.Button();
             this.txtPetName = new System.Windows.Forms.TextBox();
             this.txtPetAge = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,12 +54,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtOwnerName = new System.Windows.Forms.TextBox();
             this.btAddOwner = new System.Windows.Forms.Button();
+            this.txtCatBehavior = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btRemovePet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbOwners
             // 
             this.lbOwners.FormattingEnabled = true;
-            this.lbOwners.Location = new System.Drawing.Point(175, 190);
+            this.lbOwners.Location = new System.Drawing.Point(175, 247);
             this.lbOwners.Name = "lbOwners";
             this.lbOwners.Size = new System.Drawing.Size(111, 69);
             this.lbOwners.TabIndex = 0;
@@ -69,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(172, 174);
+            this.label1.Location = new System.Drawing.Point(172, 231);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 1;
@@ -85,44 +86,27 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Animal Shelter";
             // 
-            // lbDogs
+            // lbPets
             // 
-            this.lbDogs.FormattingEnabled = true;
-            this.lbDogs.Location = new System.Drawing.Point(292, 76);
-            this.lbDogs.Name = "lbDogs";
-            this.lbDogs.Size = new System.Drawing.Size(111, 95);
-            this.lbDogs.TabIndex = 3;
-            // 
-            // lbCats
-            // 
-            this.lbCats.FormattingEnabled = true;
-            this.lbCats.Location = new System.Drawing.Point(175, 75);
-            this.lbCats.Name = "lbCats";
-            this.lbCats.Size = new System.Drawing.Size(111, 95);
-            this.lbCats.TabIndex = 4;
+            this.lbPets.FormattingEnabled = true;
+            this.lbPets.Location = new System.Drawing.Point(172, 75);
+            this.lbPets.Name = "lbPets";
+            this.lbPets.Size = new System.Drawing.Size(111, 95);
+            this.lbPets.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(172, 59);
+            this.label3.Location = new System.Drawing.Point(169, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Dogs";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(289, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Cats";
+            this.label3.Text = "Pets";
             // 
             // lbPetDetails
             // 
             this.lbPetDetails.FormattingEnabled = true;
-            this.lbPetDetails.Location = new System.Drawing.Point(409, 76);
+            this.lbPetDetails.Location = new System.Drawing.Point(292, 75);
             this.lbPetDetails.Name = "lbPetDetails";
             this.lbPetDetails.Size = new System.Drawing.Size(111, 95);
             this.lbPetDetails.TabIndex = 7;
@@ -130,7 +114,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(406, 60);
+            this.label5.Location = new System.Drawing.Point(289, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 8;
@@ -138,7 +122,7 @@
             // 
             // btAddPet
             // 
-            this.btAddPet.Location = new System.Drawing.Point(12, 176);
+            this.btAddPet.Location = new System.Drawing.Point(12, 233);
             this.btAddPet.Name = "btAddPet";
             this.btAddPet.Size = new System.Drawing.Size(75, 23);
             this.btAddPet.TabIndex = 9;
@@ -149,7 +133,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(289, 174);
+            this.label6.Location = new System.Drawing.Point(289, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 11;
@@ -157,7 +141,7 @@
             // 
             // btSellPet
             // 
-            this.btSellPet.Location = new System.Drawing.Point(310, 265);
+            this.btSellPet.Location = new System.Drawing.Point(192, 351);
             this.btSellPet.Name = "btSellPet";
             this.btSellPet.Size = new System.Drawing.Size(75, 23);
             this.btSellPet.TabIndex = 12;
@@ -167,7 +151,7 @@
             // lbOwnerPets
             // 
             this.lbOwnerPets.FormattingEnabled = true;
-            this.lbOwnerPets.Location = new System.Drawing.Point(292, 190);
+            this.lbOwnerPets.Location = new System.Drawing.Point(292, 247);
             this.lbOwnerPets.Name = "lbOwnerPets";
             this.lbOwnerPets.Size = new System.Drawing.Size(111, 69);
             this.lbOwnerPets.TabIndex = 13;
@@ -223,21 +207,21 @@
             // 
             // btReservePet
             // 
-            this.btReservePet.Location = new System.Drawing.Point(428, 265);
+            this.btReservePet.Location = new System.Drawing.Point(192, 380);
             this.btReservePet.Name = "btReservePet";
             this.btReservePet.Size = new System.Drawing.Size(75, 23);
             this.btReservePet.TabIndex = 19;
             this.btReservePet.Text = "Reserve pet";
             this.btReservePet.UseVisualStyleBackColor = true;
             // 
-            // btBuyPet
+            // btBuyDog
             // 
-            this.btBuyPet.Location = new System.Drawing.Point(192, 265);
-            this.btBuyPet.Name = "btBuyPet";
-            this.btBuyPet.Size = new System.Drawing.Size(75, 23);
-            this.btBuyPet.TabIndex = 20;
-            this.btBuyPet.Text = "Buy pet";
-            this.btBuyPet.UseVisualStyleBackColor = true;
+            this.btBuyDog.Location = new System.Drawing.Point(192, 322);
+            this.btBuyDog.Name = "btBuyDog";
+            this.btBuyDog.Size = new System.Drawing.Size(75, 23);
+            this.btBuyDog.TabIndex = 20;
+            this.btBuyDog.Text = "Buy pet";
+            this.btBuyDog.UseVisualStyleBackColor = true;
             // 
             // txtPetName
             // 
@@ -256,7 +240,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 223);
+            this.label10.Location = new System.Drawing.Point(15, 280);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 13);
             this.label10.TabIndex = 23;
@@ -265,7 +249,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(406, 174);
+            this.label11.Location = new System.Drawing.Point(406, 231);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 13);
             this.label11.TabIndex = 24;
@@ -274,7 +258,7 @@
             // lbReservedPets
             // 
             this.lbReservedPets.FormattingEnabled = true;
-            this.lbReservedPets.Location = new System.Drawing.Point(409, 190);
+            this.lbReservedPets.Location = new System.Drawing.Point(409, 247);
             this.lbReservedPets.Name = "lbReservedPets";
             this.lbReservedPets.Size = new System.Drawing.Size(111, 69);
             this.lbReservedPets.TabIndex = 25;
@@ -282,7 +266,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 242);
+            this.label12.Location = new System.Drawing.Point(15, 299);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 26;
@@ -290,25 +274,55 @@
             // 
             // txtOwnerName
             // 
-            this.txtOwnerName.Location = new System.Drawing.Point(59, 239);
+            this.txtOwnerName.Location = new System.Drawing.Point(59, 296);
             this.txtOwnerName.Name = "txtOwnerName";
             this.txtOwnerName.Size = new System.Drawing.Size(79, 20);
             this.txtOwnerName.TabIndex = 27;
             // 
             // btAddOwner
             // 
-            this.btAddOwner.Location = new System.Drawing.Point(15, 265);
+            this.btAddOwner.Location = new System.Drawing.Point(15, 322);
             this.btAddOwner.Name = "btAddOwner";
             this.btAddOwner.Size = new System.Drawing.Size(75, 23);
             this.btAddOwner.TabIndex = 28;
             this.btAddOwner.Text = "Add owner";
             this.btAddOwner.UseVisualStyleBackColor = true;
+            this.btAddOwner.Click += new System.EventHandler(this.btAddOwner_Click);
+            // 
+            // txtCatBehavior
+            // 
+            this.txtCatBehavior.Location = new System.Drawing.Point(12, 192);
+            this.txtCatBehavior.Name = "txtCatBehavior";
+            this.txtCatBehavior.Size = new System.Drawing.Size(123, 20);
+            this.txtCatBehavior.TabIndex = 29;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(9, 176);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(70, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Cat behavior:";
+            // 
+            // btRemovePet
+            // 
+            this.btRemovePet.Location = new System.Drawing.Point(192, 176);
+            this.btRemovePet.Name = "btRemovePet";
+            this.btRemovePet.Size = new System.Drawing.Size(75, 23);
+            this.btRemovePet.TabIndex = 31;
+            this.btRemovePet.Text = "Remove pet";
+            this.btRemovePet.UseVisualStyleBackColor = true;
+            this.btRemovePet.Click += new System.EventHandler(this.btRemovePet_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 325);
+            this.ClientSize = new System.Drawing.Size(553, 446);
+            this.Controls.Add(this.btRemovePet);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtCatBehavior);
             this.Controls.Add(this.btAddOwner);
             this.Controls.Add(this.txtOwnerName);
             this.Controls.Add(this.label12);
@@ -317,7 +331,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtPetAge);
             this.Controls.Add(this.txtPetName);
-            this.Controls.Add(this.btBuyPet);
+            this.Controls.Add(this.btBuyDog);
             this.Controls.Add(this.btReservePet);
             this.Controls.Add(this.rbCat);
             this.Controls.Add(this.rbDog);
@@ -330,10 +344,8 @@
             this.Controls.Add(this.btAddPet);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbPetDetails);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lbCats);
-            this.Controls.Add(this.lbDogs);
+            this.Controls.Add(this.lbPets);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbOwners);
@@ -349,10 +361,8 @@
         private System.Windows.Forms.ListBox lbOwners;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lbDogs;
-        private System.Windows.Forms.ListBox lbCats;
+        private System.Windows.Forms.ListBox lbPets;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lbPetDetails;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btAddPet;
@@ -365,7 +375,7 @@
         private System.Windows.Forms.RadioButton rbDog;
         private System.Windows.Forms.RadioButton rbCat;
         private System.Windows.Forms.Button btReservePet;
-        private System.Windows.Forms.Button btBuyPet;
+        private System.Windows.Forms.Button btBuyDog;
         private System.Windows.Forms.TextBox txtPetName;
         private System.Windows.Forms.TextBox txtPetAge;
         private System.Windows.Forms.Label label10;
@@ -374,6 +384,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtOwnerName;
         private System.Windows.Forms.Button btAddOwner;
+        private System.Windows.Forms.TextBox txtCatBehavior;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btRemovePet;
     }
 }
 

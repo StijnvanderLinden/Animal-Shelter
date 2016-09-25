@@ -8,9 +8,9 @@ namespace AnimalShelter
 {
     class Pet
     {
-        private string name;
-        private int age;
-        private bool reserved;
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public bool Reserved { get; set; }
 
         public Pet(string name, int age, bool reserved)
         {
@@ -18,11 +18,5 @@ namespace AnimalShelter
             Age = age;
             Reserved = reserved;
         }
-
-        public string Name { get { return name; } set { name = value; } }
-
-        public int Age { get { return age; } set { age = value; } }
-
-        public bool Reserved { get { return reserved; } set { reserved = value; } }
     }
 }

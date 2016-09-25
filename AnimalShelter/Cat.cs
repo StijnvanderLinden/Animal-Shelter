@@ -8,27 +8,14 @@ namespace AnimalShelter
 {
     class Cat : Pet
     {
-        List<string> behavior;
+        public string Behavior { get; set; }
 
-        public Cat(string name, int age, bool reserved, List<string> behavior) : base(name, age, reserved)
+        public Cat(string name, int age, bool reserved, string behavior) : base(name, age, reserved)
         {
             Behavior = behavior;
             Name = name;
             Age = age;
             Reserved = reserved;
-        }
-
-        public List<string> Behavior { get { return behavior; } set { behavior = value; } }
-
-        public void AddBehavior(string behavior)
-        {
-            Behavior.Add(behavior);
-        }
-
-        public void RemoveBehavior(string behavior)
-        {
-            int behaviorIndex = Behavior.IndexOf(behavior);
-            Behavior.RemoveAt(behaviorIndex);
         }
     }
 }

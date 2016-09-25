@@ -8,7 +8,7 @@ namespace AnimalShelter
 {
     class Dog : Pet
     {
-        private DateTime lastWalk;
+        public DateTime LastWalk { get; set; }
 
         public Dog(string name, int age, bool reserved, DateTime lastWalk) : base(name, age, reserved)
         {
@@ -16,12 +16,6 @@ namespace AnimalShelter
             Name = name;
             Age = age;
             Reserved = reserved;
-        }
-
-        public DateTime LastWalk { get { return lastWalk; } set { lastWalk = value; } }
-        public void WalkDog(Dog dog)
-        {
-            LastWalk = DateTime.Now;
         }
     }
 }
