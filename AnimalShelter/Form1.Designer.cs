@@ -57,6 +57,7 @@
             this.txtCatBehavior = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btRemovePet = new System.Windows.Forms.Button();
+            this.lbBoughtPets = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lbOwners
@@ -320,11 +321,20 @@
             this.btRemovePet.UseVisualStyleBackColor = true;
             this.btRemovePet.Click += new System.EventHandler(this.btRemovePet_Click);
             // 
+            // lbBoughtPets
+            // 
+            this.lbBoughtPets.FormattingEnabled = true;
+            this.lbBoughtPets.Location = new System.Drawing.Point(409, 75);
+            this.lbBoughtPets.Name = "lbBoughtPets";
+            this.lbBoughtPets.Size = new System.Drawing.Size(111, 95);
+            this.lbBoughtPets.TabIndex = 32;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 446);
+            this.Controls.Add(this.lbBoughtPets);
             this.Controls.Add(this.btRemovePet);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCatBehavior);
@@ -392,6 +402,7 @@
         private System.Windows.Forms.TextBox txtCatBehavior;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btRemovePet;
+        private System.Windows.Forms.ListBox lbBoughtPets;
     }
 }
 

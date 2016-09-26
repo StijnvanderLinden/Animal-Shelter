@@ -59,7 +59,6 @@ namespace AnimalShelter
             shelter.Owners[lbOwners.SelectedIndex].Pets.Add(shelter.Pets[lbPets.SelectedIndex]);
             shelter.Pets[lbPets.SelectedIndex].Owner = shelter.Owners[lbOwners.SelectedIndex];
             lbOwnerPets.Items.Add(shelter.Pets[lbPets.SelectedIndex].Name);
-            lbPetDetails.Items.Add("Owner: " + shelter.Owners[lbOwners.SelectedIndex].Name);
         }
 
         private void btReservePet_Click(object sender, EventArgs e)

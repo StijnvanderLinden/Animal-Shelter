@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter
 {
-    class Dog : Pet
+    public class Dog : Pet
     {
+
         public DateTime LastWalk { get; set; }
 
         public Dog(string name, int age, bool reserved, DateTime lastWalk) : base(name, age, reserved)
