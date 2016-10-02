@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter
 {
-    public class Cat : Pet
+    class Cat : Pet
     {
         public string Behavior { get; set; }
 
@@ -16,6 +16,10 @@ namespace AnimalShelter
             Name = name;
             Age = age;
             Reserved = reserved;
+        }
+        public override string MakeNoise()
+        {
+            return "Meow";
         }
     }
 }

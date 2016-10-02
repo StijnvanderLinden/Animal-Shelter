@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter
 {
-    public class Dog : Pet
+    class Dog : Pet
     {
 
         public DateTime LastWalk { get; set; }
@@ -17,6 +17,10 @@ namespace AnimalShelter
             Name = name;
             Age = age;
             Reserved = reserved;
+        }
+        public override string MakeNoise()
+        {
+            return "Woof";
         }
     }
 }

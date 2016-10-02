@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter
 {
-    public class Pet
+    abstract class Pet
     {
         public string Name { get; set; }
         public int Age { get; set; }
@@ -19,5 +19,6 @@ namespace AnimalShelter
             Reserved = reserved;
             Owner = null;
         }
+        public abstract string MakeNoise();
     }
 }

@@ -6,23 +6,28 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter
 {
-    class Shelter
+    class Shelter : ISortTest
     {
         public string Name { get; set; }
-        public List<Pet> Pets { get; set; }
+        public List<Dog> Dogs { get; set; }
+        public List<Cat> Cats { get; set; }
         public List<Owner> Owners { get; set; }
 
         public Shelter(string name)
         {
             Name = name;
-            Pets = new List<Pet>();
+            Dogs = new List<Dog>();
+            Cats = new List<Cat>();
             Owners = new List<Owner>();
         }
 
 
         public void AddPet(Pet pet)
         {
-            Pets.Add(pet);
+            if(pet.GetType() == typeof(Dog))
+            {
+                Dogs.Add(pet);
+            }
         }
 
         public void SellPet(Pet pet, Owner owner)
@@ -40,5 +45,7 @@ namespace AnimalShelter
         {
             dog.LastWalk = DateTime.Now;
         }
+
+        public Pet 
     }
 }
