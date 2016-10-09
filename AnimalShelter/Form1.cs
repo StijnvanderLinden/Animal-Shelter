@@ -13,23 +13,53 @@ namespace AnimalShelter
     public partial class Form1 : Form
     {
         Shelter shelter;
+        Webshop webshop;
         public Form1()
         {
             InitializeComponent();
             shelter = new Shelter("Animal Shelter");
+            webshop = new Webshop();
+            webshop.Products.Add(new Product("Dog food", 15));
+            webshop.Products.Add(new Product("Cat food", 10));
+            RefreshLists();
         }
 
         private void btAddPet_Click(object sender, EventArgs e)
         {
             if (rbDog.Checked)
             {
-                Dog dog = new Dog(txtPetName.Text, Convert.ToInt32(txtPetAge.Text), false, DateTime.Now);
-                shelter.Dogs.Add(dog);
+                int price = 500;
+                foreach (Dog doggy in shelter.Pets)
+                {
+                    if (price == 50)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        price -= 50;
+                    }
+                }
+                Dog dog = new Dog(txtPetName.Text, price, Convert.ToInt32(txtPetAge.Text), false, DateTime.Now);
+                shelter.Pets.Add(dog);
             }
             else
             {
-                Cat cat = new Cat(txtPetName.Text, Convert.ToInt32(txtPetAge.Text), false, txtCatBehavior.Text);
-                shelter.Cats.Add(cat);
+                int price = 350;
+                foreach (char character in txtCatBehavior.Text)
+                {
+                    if (price > 50)
+                    {
+                        price -= 20;
+                    }
+                    else
+                    {
+                        price = 35;
+                        break;
+                    }
+                }
+                Cat cat = new Cat(txtPetName.Text, price, Convert.ToInt32(txtPetAge.Text), false, txtCatBehavior.Text);
+                shelter.Pets.Add(cat);
             }
             RefreshLists();
         }
@@ -43,78 +73,96 @@ namespace AnimalShelter
 
         private void btBuyPet_Click(object sender, EventArgs e)
         {
-            shelter.SellPet(shelter.Pets[lbDogs.SelectedIndex], shelter.Owners[lbOwners.SelectedIndex]);
+            shelter.SellPet(shelter.Pets[lbPets.SelectedIndex], shelter.Owners[lbOwners.SelectedIndex]);
         }
 
         private void btRemovePet_Click(object sender, EventArgs e)
         {
-            if(lbDogs.SelectedItem != null)
+            if (lbPets.SelectedItem != null)
             {
-                shelter.RemovePet(shelter.Pets[lbDogs.SelectedIndex]);
+                shelter.RemovePet(shelter.Pets[lbPets.SelectedIndex]);
                 RefreshLists();
-            }
-            else if(lbCats.SelectedItem != null)
-            {
-                shelter.
             }
         }
         private void btBuyDog_Click(object sender, EventArgs e)
         {
-            shelter.Owners[lbOwners.SelectedIndex].Pets.Add(shelter.Pets[lbDogs.SelectedIndex]);
-            shelter.Pets[lbDogs.SelectedIndex].Owner = shelter.Owners[lbOwners.SelectedIndex];
-            lbOwnerPets.Items.Add(shelter.Pets[lbDogs.SelectedIndex].Name);
+            shelter.Owners[lbOwners.SelectedIndex].Pets.Add(shelter.Pets[lbPets.SelectedIndex]);
+            shelter.Pets[lbPets.SelectedIndex].Owner = shelter.Owners[lbOwners.SelectedIndex];
+            lbOwnerPets.Items.Add(shelter.Pets[lbPets.SelectedIndex].Name);
         }
 
         private void btReservePet_Click(object sender, EventArgs e)
         {
-            shelter.Owners[lbOwners.SelectedIndex].ReservedPets.Add(shelter.Pets[lbDogs.SelectedIndex]);
-            shelter.Pets[lbDogs.SelectedIndex].Reserved = true;
-            lbReservedPets.Items.Add(shelter.Pets[lbDogs.SelectedIndex]);
+            shelter.Owners[lbOwners.SelectedIndex].ReservedPets.Add(shelter.Pets[lbPets.SelectedIndex]);
+            shelter.Pets[lbPets.SelectedIndex].Reserved = true;
+            lbReservedPets.Items.Add(shelter.Pets[lbPets.SelectedIndex]);
         }
 
         private void btSellPet_Click(object sender, EventArgs e)
         {
-            shelter.Owners[lbOwners.SelectedIndex].Pets.Remove(shelter.Pets[lbDogs.SelectedIndex]);
-            shelter.Pets[lbDogs.SelectedIndex].Owner = null;
+            shelter.Owners[lbOwners.SelectedIndex].Pets.Remove(shelter.Pets[lbPets.SelectedIndex]);
+            shelter.Pets[lbPets.SelectedIndex].Owner = null;
         }
+        private void btAddProduct_Click(object sender, EventArgs e)
+        {
 
+        }
+        private void btBuyProduct_Click(object sender, EventArgs e)
+        {
+
+        }
         private void lbOwners_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbOwnerPets.Items.Clear();
-            foreach(Pet pet in shelter.Owners[lbOwners.SelectedIndex].Pets)
+            lbReservedPets.Items.Clear();
+            lbOwnerProducts.Items.Clear();
+            foreach (Pet pet in shelter.Owners[lbOwners.SelectedIndex].Pets)
             {
                 lbOwnerPets.Items.Add(pet.Name);
             }
-
+            foreach (Pet pet in shelter.Owners[lbOwners.SelectedIndex].ReservedPets)
+            {
+                lbReservedPets.Items.Add(pet.Name);
+            }
+            foreach (Product product in shelter.Owners[lbOwners.SelectedIndex].Products)
+            {
+                lbOwnerProducts.Items.Add(product.Name);
+            }
         }
         private void lbPets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbDogDetails.Items.Clear();
-            lbDogDetails.Items.Add("Name: " + shelter.Pets[lbDogs.SelectedIndex].Name);
-            lbDogDetails.Items.Add("Age: " + shelter.Pets[lbDogs.SelectedIndex].Age);
-            lbDogDetails.Items.Add("Reserved: " + shelter.Pets[lbDogs.SelectedIndex].Reserved);
-            if(shelter.Pets[lbDogs.SelectedIndex].Owner != null)
+            lbPetDetails.Items.Clear();
+            lbPetDetails.Items.Add("Name: " + shelter.Pets[lbPets.SelectedIndex].Name);
+            lbPetDetails.Items.Add("Age: " + shelter.Pets[lbPets.SelectedIndex].Age);
+            lbPetDetails.Items.Add("Reserved: " + shelter.Pets[lbPets.SelectedIndex].Reserved);
+            lbPetDetails.Items.Add("Price: €" + shelter.Pets[lbPets.SelectedIndex].Price);
+            if (shelter.Pets[lbPets.SelectedIndex].Owner != null)
             {
-                lbDogDetails.Items.Add("Owner: " + shelter.Pets[lbDogs.SelectedIndex].Owner.Name);
+                lbPetDetails.Items.Add("Owner: " + shelter.Pets[lbPets.SelectedIndex].Owner.Name);
             }
-            //if(shelter.Pets[lbPets.SelectedIndex].GetType() == typeof(Dog))
-            //{
-            //    lbPetDetails.Items.Add
-            //}
+        }
+        private void lbProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
         private void RefreshLists()
         {
-            lbDogs.Items.Clear();
+            lbPets.Items.Clear();
             lbOwners.Items.Clear();
             lbOwnerPets.Items.Clear();
+            lbProducts.Items.Clear();
             foreach (Pet pet in shelter.Pets)
             {
-                lbDogs.Items.Add(pet.Name);
+                lbPets.Items.Add(pet.Name);
             }
 
             foreach (Owner owner in shelter.Owners)
             {
                 lbOwners.Items.Add(owner.Name);
+            }
+            foreach (Product product in webshop.Products)
+            {
+                lbProducts.Items.Add(product.Name);
             }
         }
     }

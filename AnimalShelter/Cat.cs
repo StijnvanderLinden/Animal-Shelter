@@ -10,13 +10,15 @@ namespace AnimalShelter
     {
         public string Behavior { get; set; }
 
-        public Cat(string name, int age, bool reserved, string behavior) : base(name, age, reserved)
+        public Cat(string name, decimal price, int age, bool reserved, string behavior) : base(name, price, age, reserved)
         {
             Behavior = behavior;
             Name = name;
+            Price = price;
             Age = age;
             Reserved = reserved;
         }
+
         public override string MakeNoise()
         {
             return "Meow";

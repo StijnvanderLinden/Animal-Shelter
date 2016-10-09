@@ -9,16 +9,16 @@ namespace AnimalShelter
     class Owner
     {
         public string Name { get; set; }
-        public List<Dog> Dogs { get; set; }
-        public List<Cat> Cats { get; set; }
+        public List<Pet> Pets { get; set; }
         public List<Pet> ReservedPets { get; set; }
+        public List<Product> Products { get; set; }
 
         public Owner(string name)
         {
             Name = name;
-            Dogs = new List<Dog>();
-            Cats = new List<Cat>();
+            Pets = new List<Pet>();
             ReservedPets = new List<Pet>();
+            Products = new List<Product>();
         }
         public void ReservePet(Pet pet)
         {

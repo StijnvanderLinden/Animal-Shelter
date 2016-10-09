@@ -11,7 +11,7 @@ namespace AnimalShelter
 
         public DateTime LastWalk { get; set; }
 
-        public Dog(string name, int age, bool reserved, DateTime lastWalk) : base(name, age, reserved)
+        public Dog(string name, decimal price, int age, bool reserved, DateTime lastWalk) : base(name, price, age, reserved)
         {
             LastWalk = lastWalk;
             Name = name;
